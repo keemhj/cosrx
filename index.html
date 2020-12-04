@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- 13.캐로셀 안의 컨텐츠에 사용할 animate.css cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+
+    <!-- 1.파비콘 넣기 -->
+    <link rel="icon" href="img/favicon.ico">
+    <!-- 19.css와 js를 따라 분리 -->
+    <link rel="stylesheet" href="css/mystyle.css">
+
+    <title>COSRX | 코스알엑스 </title>
+   
+  </head>
+  <!-- 35.scrollspy를 위한 data속성 설정 -->
+  <!-- 57.스크롤시 활성화되는 메뉴의 시점이 잘 맞지 않는 부분에 data-offset으로 조절 -->
+  <body data-spy="scroll" data-target="#navbarSupportedContent" data-offset="120">
+    <!-- 15.loading img넣기 -->
+    <div class="loading">
+        <div class="d-flex justify-content-center">
+            <img src="img/loading.gif" alt="">
+        </div>
+    </div>
+    <!-- 3. container-fluid안의 x축padding:0 -->
+    <div class="container-fluid px-0">
+        <!-------------------------------------
+            26.상단의 캐로셀과 네브바 컨텐츠를 header#top으로 설정
+        ---------------------------------------->
+        <header id="top">
+            <!-- 2. 캐로셀 넣고 With captions 아이디 변경하고 ol>li의 data-target속성과 a의 href속성값도 id명으로 변경-->
+            <div id="topCarousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#topCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#topCarousel" data-slide-to="1"></li>
+                <li data-target="#topCarousel" data-slide-to="2"></li>
+                <li data-target="#topCarousel" data-slide-to="3"></li>
+                <li data-target="#topCarousel" data-slide-to="4"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active"></div>
+                <div class="carousel-item"></div>
+                <div class="carousel-item"></div>
+                <div class="carousel-item"></div>
+                <div class="carousel-item"></div>
+              </div>
+              <a class="carousel-control-prev" href="#topCarousel" role="button" data-slide="prev">
+                <!-- 4.캐로셀 left, right 아이콘을 bs4의 svg코드로 변경하고 크기를 원하는 사이즈로 변경 -->
+                <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-chevron-compact-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/>
+                </svg>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#topCarousel" role="button" data-slide="next">
+               <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
+                </svg>
+                <span class="sr-only">Next</span>
+              </a>
+            </div><!-- .carousel -->
+            <!-- 20.navbar넣고 li메뉴 7개 작성 -->
+            <!-- 33.네브바에 scrollspy 설정 -->
+            <!-- 34.네브바의 속성을 position:sticky로 설정 -->
+          </header>  
+          <!-- 56.네브바가 최상단으로 스크롤되었을 때 fixed되도록 sticky-top을 추가하는데 구조상 본인이 최상위 구조여야 작동한다!! -->
+          <div class="row bg-white fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white" style="" >
+                  <!-- 24.상단네브 좌측에 로고 2개 넣고 화면 사이즈별로 서로 다른 이미지가 보이도록 설정 -->
+                  <a class="navbar-brand text-hide" href="#">New Cosmetic Standard
+                    <img src="img/logo.jpg" alt="COSRX" class="img-fluid"> 
+                  </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- 22.ul을 우측으로 이동하기 위해 mr-auto 를 ml-auto, mx-auto로 수정 -->
+                    <ul class="navbar-nav ml-auto py-0">
+                      <!-- 36.스크롤스파이가 작동하기 위해 각 li>a의 href="#아이디명" 설정하고 첫번째 li가 갖고있던 .active 삭제 -->
+                      <li class="nav-item">
+                         <a class="nav-link" href="#top">NEW</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#purepit">PURE PIT<span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item dropdown">
+                         <a class="nav-link" href="#best">BEST</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                         <a class="nav-link" href="#daily">DAlLY</a>
+                      </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="#review">REVIEW</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+            </div><!-- .container-xl -->
+        </div><!-- .row -->
+        <!-------------------------------------
+            27.두번째 컨텐츠를 section#birth로 지정
+        ---------------------------------------->
+        <!-- section#birth>div.container>div.row>div.col-md-8 -->
+        <section id="purepit">
+            <div class="container-fluid">
+              <div class="row bg-white bk_white"></div>
+              <div class="row mx-auto ">
+                <div class="col text-center">
+                  <h2 class="font_roboto_400" style="">PURE PIT CICA</h2>
+                </div>
+              </div>
+              <div class="row bg_purepit py-5 my-5 btn_style">
+                    <div class="container purepit_txt py-5" >
+                        <p class="font_sm">매일밤, 다시 태어나는</p>
+                        <p class="font_lg">역시 - 카밍</p>
+                        <p class="font_md">밤 사이 피부 속부터 집중 진정되는<br>편안함을 느껴보세요.</p>
+                        <div class="row"><a href="http://www.cosrx.co.kr/shop/shopbrand.html?type=N&xcode=070&mcode=004&scode=006">Shop now</a></div>
+                    </div>
+              </div>
+              
+              <!-- <div class="p-5">
+                <div class="row best_list mx-auto">
+                  <div class="col-lg-3 text-center">
+                    <img src="img/cica_01.png" alt="" class="img-fluid mx-auto">
+                    <p class="p-3">퓨어 핏 시카 토너<br><small>KRW 22,000</p></small></p>
+                    <a href="/shop/shopdetail.html?branduid=1176488&amp;xcode=070&amp;mcode=004&amp;scode=002&amp;type=Y&amp;sort=manual&amp;cur_code=070004002&amp;GfDT=Zm53Uw%3D%3D"></a>
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <img src="img/cica_02.png" alt="" class="img-fluid mx-auto">
+                    <p class="p-3">퓨어 핏 시카 앰플<br><small>KRW 23,500</p></small></p>
+                    <a href="/shop/shopdetail.html?branduid=1176536&xcode=070&mcode=004&scode=002&type=Y&sort=manual&cur_code=070004002&GfDT=bml7W18%3D"></a>
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <img src="img/cica_03.png" alt="" class="img-fluid mx-auto">
+                    <p class="p-3">퓨어 핏 시카 크림<br><small>KRW 28,000</p></small></p>
+                    <a href="/shop/shopdetail.html?branduid=1176505&amp;xcode=070&amp;mcode=004&amp;scode=002&amp;type=Y&amp;sort=manual&amp;cur_code=070004002&amp;GfDT=bWd3VQ%3D%3D"></a>
+                  </div>
+                  <div class="col-lg-3 text-center">
+                    <img src="img/cica_04.jpg" alt="" class="img-fluid mx-auto">
+                    <p class="p-3">퓨어 핏 시카 시트 마스크<br><small>KRW 4,000</p></small></p>
+                    <a href="/shop/shopdetail.html?branduid=1176704&amp;xcode=070&amp;mcode=004&amp;scode=002&amp;type=Y&amp;sort=manual&amp;cur_code=070004002&amp;GfDT=bmx8W1w%3D"></a>
+                  </div>
+                </div>
+              </div> -->
+              <div class="row py-5 my-5">
+                <div class="col-lg-12 py-5 px-0">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <video muted autoplay loop class="bo">
+                      <source src="video/cica_toner.mp4" type="video/mp4" class="bo">
+                    </video>
+                  </div>
+                </div>
+              </div>
+              <div class="row py-5">
+                <div class="col-lg-7 w-100">
+                  <div class="row">
+                    <img src="img/toner_01.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+                <div class="col-lg-5 p-5">
+                      <div class="new_img text-center">
+                            <p><b>퓨어 핏 시카-7 컴플렉스<br></b>
+                        진정을 넘어 피부 스스로의 힘을 키워주는 리얼 시카</p>
+                        <!--아이콘-->
+                        <div class="new_icon row">
+                          <ul>
+                            <li class="">
+                              <span><img src="img/icon_01.png"></span>
+                              <p>피부에너지</p> 
+                            </li>
+                            <li class="">
+                              <span><img src="img/icon_02.png"></span>
+                              <p>피부맑음</p> 
+                            </li>
+                            <li class="">
+                              <span><img src="img/icon_03.png"></span>
+                              <p>피부진정</p>   
+                            </li>
+                          </ul>
+                        </div>
+                        <!--//아이콘-->
+                            <p class="font_md" style="font-size: 20px;">
+                            피부 에너지 : 피부 본연의 힘을 강화하는데 도움<br>
+                            피부 맑음 : 피부에 맑은 촉촉함을 부여<br>
+                            피부 진정 : 민감 피부를 진정시키고 편안하게 케어
+                            </p>
+                        <a href="http://www.cosrx.co.kr/shop/shopdetail.html?branduid=1176701" class="btn_toner">Shop now</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-3"></div>
+              <div class="col-lg-3"></div>
+              <div class="col-lg-3"></div>
+            </div>
+            
+              
+          </div><!-- container -->
+        </section>    
+        <!-------------------------------------
+            28.세번째 컨텐츠를 section#best로 지정
+        ---------------------------------------->
+        <!-- section#secret>div.container>div.row>div.col-md-6*2 -->
+        <section id="best">
+          <div class="container-fluid">
+            <div class="row mx-auto my-5">
+                <div class="col text-center">
+                  <h2 class="font_roboto_400" style="margin-top: 50px;">BEST SELLER</h2>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 p-0">
+                <img src="img/fullfit_02.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="col-lg-6 p-0 ">
+                <img src="img/fullfit_05.png" alt="" class="img-fluid">
+              </div>
+            </div>
+            <div class="row mx-auto my-5">
+                <div class="col text-center">
+                  <h2 class="font_roboto_400" style="margin-top: 50px; margin-bottom: 0;">PULL PIT PROPOLIS</h2>
+                </div>
+            </div>
+            <div class="row p-5">
+              <div class="row best_list mx-auto">
+                <div class="col-lg-3 text-center">
+                <img src="img/fullfit_propolis_01.jpg" alt="" class="img-fluid mx-auto">
+                <p class="p-3">풀핏 프로폴리스 시너지 토너<br><small>KRW 22,000</p></small></p>
+                <a href="/shop/shopdetail.html?branduid=1176488&amp;xcode=070&amp;mcode=004&amp;scode=002&amp;type=Y&amp;sort=manual&amp;cur_code=070004002&amp;GfDT=Zm53Uw%3D%3D"></a>
+                </div>
+                <div class="col-lg-3 text-center">
+                  <img src="img/fullfit_propolis_02.jpg" alt="" class="img-fluid mx-auto">
+                  <p class="p-3">풀핏 프로폴리스 라이트 앰플<br><small>KRW 23,500</p></small></p>
+                  <a href="/shop/shopdetail.html?branduid=1176536&xcode=070&mcode=004&scode=002&type=Y&sort=manual&cur_code=070004002&GfDT=bml7W18%3D"></a>
+                </div>
+                <div class="col-lg-3 text-center">
+                  <img src="img/fullfit_propolis_03.jpg" alt="" class="img-fluid mx-auto">
+                  <p class="p-3">풀핏 프로폴리스 라이트 크림<br><small>KRW 28,000</p></small></p>
+                  <a href="/shop/shopdetail.html?branduid=1176505&amp;xcode=070&amp;mcode=004&amp;scode=002&amp;type=Y&amp;sort=manual&amp;cur_code=070004002&amp;GfDT=bWd3VQ%3D%3D"></a>
+                </div>
+                <div class="col-lg-3 text-center">
+                  <img src="img/fullfit_propolis_04.jpg" alt="" class="img-fluid mx-auto">
+                  <p class="p-3">풀핏 프로폴리스 라이트 시트 마스크<br><small>KRW 4,000</p></small></p>
+                  <a href="/shop/shopdetail.html?branduid=1176704&amp;xcode=070&amp;mcode=004&amp;scode=002&amp;type=Y&amp;sort=manual&amp;cur_code=070004002&amp;GfDT=bmx8W1w%3D"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-------------------------------------
+            40.네번째 컨텐츠를 section#products로 지정
+        ---------------------------------------->
+        <!-- section#products>div.container>div.row*3 -->
+        <section id="daily">
+          <div class="row mx-auto my-5">
+            <div class="col text-center">
+              <h2 class="font_roboto_400" style="margin-top: 50px; margin-bottom: 0;">DAILY CARE</h2>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-5 px-0 ">
+                <div class="new_img text-center py-5">
+                            <p><b>3중 히알루론</b><br>
+                        수분을 끌어 당겨 보습을 강화하는 하이드리움</p>
+                        <!--아이콘-->
+                        <div class="new_icon row bo">
+                          <ul>
+                            <li>
+                              <span><img src="img/icon_04.png"></span>
+                              <p>피부수분</p> 
+                            </li>
+                            <li>
+                              <span><img src="img/icon_05.png"></span>
+                              <p>생기충전</p> 
+                            </li>
+                            <li>
+                              <span><img src="img/icon_06.png"></span>
+                              <p>피부물과</p>   
+                            </li>
+                          </ul>
+                        </div>
+                        <!--//아이콘-->
+                            <p class="bo font_md" style="font-size: 20px;">
+                            3중 히알루론산과 프로 비타민 B5(D-판테놀)가<br>
+                            무너진 피부 수준 밸러스를 맞추는데 도움을 주어<br>
+                            수분 부족으로 발생하는 모든 고민을 케어<br>
+                            </p>
+                        <div class="row bo" style="margin-top: 20px;">
+                          <a href="http://www.cosrx.co.kr/shop/shopbrand.html?type=N&xcode=070&mcode=001&scode=006" class="btn_toner bo">Shop now</a>
+                        </div>
+                  </div>
+              </div>
+              <div class="col-lg-7 p-0" style="height: 100%">
+                <img src="img/mask_01.jpg" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- container -->
+        </section>
+        <!-------------------------------------
+            41.다섯번째 컨텐츠(동영상)를 section#cf로 지정
+        ---------------------------------------->
+        <!-- section#cf>div.container>div.row*2 -->
+        <section id="review">
+          <div class="container py-5">
+            <div class="row p-5 m-5">
+              <div class="col text-center">
+              <h2 class="font_roboto_400" style="margin-top: 50px; margin-bottom: 0;">REVIEW</h2>
+            </div>
+            </div><!-- row -->
+            <div class="row px-5">
+              <div class="col-md-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-6">
+                    <img src="img/review_02.jpg" class="card-img img-fluid" alt="...">
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <h5 class="card-title m-0">퓨어 핏 시카 세럼</h5>
+                      <h6 class="card-text"><small>★★★★★<br>eun131</small></h6>
+                      <p class="card-text review_txt">“제형은 무겁지 않았고 바르고 나서 두드리면 빠르게 흡수되는 편이었음! 참고로 건성피부인데 사용 후 피부당김 느껴지지 않았음! 여름철에도 쭉 사용해도 될 거 같음!”</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-6">
+                    <img src="img/review_03.jpg" class="card-img img-fluid" alt="...">
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <h5 class="card-title m-0">퓨어 핏 시카 크림</h5>
+                      <h6 class="card-text"><small>★★★★★<br>di002435</small></h6>
+                      <p class="card-text review_txt">“시카는 진정만 하고 끝나는게 아니라 보습력이느껴지고 장벽도 튼튼해지면서 피부 자체가 건강해진 느낌이라 좋앗어요”</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="row py-3 px-5">
+              <div class="col-md-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-6">
+                    <img src="img/review_04.jpg" class="card-img img-fluid" alt="...">
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <h5 class="card-title m-0">원스텝 그린 히어로 카밍 패드</h5>
+                      <h6 class="card-text"><small>★★★★★<br>kimhh16</small></h6>
+                      <p class="card-text review_txt">“3일차 임에도 불구하고 붉게올라온게 조금 가라앉은게 보이더라구요 감격쓰... 왜 제 친구가 꼭 사라고 했는지 알겠더라구요”</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-6">
+                    <img src="img/review_01.jpg" class="card-img img-fluid" alt="...">
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body">
+                      <h5 class="card-title m-0">퓨어 핏 시카 토너</h5>
+                      <h6 class="card-text"><small>★★★★★<br>ka@5a0bfac8</small></h6>
+                      <p class="card-text review_txt">“응급 진정 토너 인정합니다! 사용감은 물처럼 흐르는데 진짜 촉촉하고 피부로 바로 흡수해서 진짜 좋았어요”</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div> 
+          </div><!-- container -->
+        </section>
+        
+       <!-- footer  -->
+        <hr>
+        <footer id="footer" class="bg-white small">
+          <!-- div.container>div.row*3 -->
+          <div class="container py-5">
+            <div class="row py-3" style="font-size: 10px;">
+              <!-- div.col-md-4*3 -->
+              <div class="col-md-4 text-center text-gray">
+                COMPANY (주)코스알엑스 | OWNER 전상훈 <br>
+                경기 성남시 분당구 구미로 8 분당엠타워 2층
+              </div>
+              <div class="col-md-4 text-center text-gray">
+                E-mail info@cosrx.co.kr | CS 031-714-9488 <br>(상담시간 월-금 : AM 09:00 - PM 05:30, 주말/공휴일 휴무)
+              </div>
+              <div class="col-md-4 text-center text-gray">
+                <p class="copyright">COSRX INC. Seongnam-si, Gyeonggi-do, Korea(13638) | Copyright. COSRX All right reserved.</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <!-- ul>li*5>a -->
+                <ul class="list-unstyled d-flex justify-content-center">
+                  <li>
+                    <a href="#">
+                      <i class="text-gray p-1 h3 fab fa-instagram-square"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="text-gray p-1 h3 fab fa-twitter-square"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="text-gray p-1 h3 fab fa-facebook-square"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="text-gray p-1 h3 fab fa-bootstrap"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="text-gray p-1 h3 fab fa-youtube-square"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div><!-- .container-fluid -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+    <!-- 37.메뉴를 클릭하면 스르륵 애니메이션 되는 외부 플러그인 연결 -->
+    <script src="js/animatescroll.min.js"></script>
+    <!-- 54.font-awesome cdn -->
+    <script src="https://kit.fontawesome.com/4c3e89fe3d.js" crossorigin="anonymous"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/myscript.js"></script>
+  </body>
+</html>
